@@ -6,7 +6,7 @@ $(document).ready(function(){
   
   var lastUpdate='0';
 
-  function appendTweetToDom(){
+  function appendTweetsToDom(){
   
     var tweetsToAppend = _.filter(streams.home,function(tweet){
 
@@ -34,8 +34,8 @@ $(document).ready(function(){
   
   }
 
-  appendTweetToDom();
+  appendTweetsToDom();
 
-  setInterval(appendTweetToDom,5000);
+  setInterval(appendTweetsToDom,5000);
 
 });
