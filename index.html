@@ -11,13 +11,26 @@
   </head>
   <body>
 
-    <header class="twittler-title">Twittler</header>
+    <header class="twittler-title">Twittler
+    <div class="add-tweet">
+      <input placeholder="add tweet" class="add-tweet-text" maxlength="160">
+      <button class="add-tweet-button">Add</button>
+    </div>
+    </header>
 
     <div class="twittler-content">
 
       <section class="twittler-stream"></section>
 
+      <section class="twittler-user-stream">
+        <h4 class="twittler-user-stream-title">Tweets By User: <span class="twittler-user"></span></h4>
+        <button class="hide-twittler-user-stream">X</button>
+        <div class="twittler-user-stream-tweets"></div>
+      </section>
+
     </div>
+
+    <footer class="error-text">Must Have Valid Tweet Text and Username</footer>
 
   </body>
 </html>
