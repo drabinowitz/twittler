@@ -2,10 +2,8 @@ var username = prompt('Username: ');
 
 $(document).ready(function(){
   
-  var $body = $('body');
-  
-  $body.html('');
-  
+  var $body = $('.twittler-stream');
+    
   var lastUpdate='0';
 
   var tweetsOnDom = [];
