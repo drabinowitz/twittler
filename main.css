@@ -1,0 +1,20 @@
+div.tweet-wrapper {
+border: 1px solid rgba(141, 141, 141, 0.39);
+margin-right: 50%;
+margin-bottom: 5px;
+border-radius: 5px;
+background: -webkit-linear-gradient(rgba(111, 192, 255, 0.36),rgba(23, 40, 238, 0.39));
+}
+
+div.tweet-wrapper h5.tweet-body {
+font-family: sans-serif;
+color: rgb(111, 111, 111);
+font-size: 16px;
+margin-left: 13px;
+}
+
+div.tweet-wrapper h6.tweet-ts {
+margin-left: 50px;
+font-size: 14px;
+color: rgb(5, 5, 5);
+}
