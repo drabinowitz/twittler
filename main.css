@@ -14,14 +14,40 @@ padding: 10px 0;
 }
 
 div.twittler-content{
+margin-top: 75px;
+}
 
-  margin-top: 59px;
+section.twittler-stream,section.twittler-user-stream{
+width: 50%;  
+}
 
+section.twittler-user-stream {
+position: fixed;
+right: 0;
+border: 1px solid black;
+bottom: 0;
+top: 75px;
+overflow: auto;
+}
+
+h4.twittler-user-stream-title {
+display: inline-block;
+color: grey;
+font-size: 20px;
+margin-top: 5px;
+margin-left: 5px;
+}
+
+.hide-twittler-user-stream {
+display:none;
+float: right;
+background-color: red;
+margin-top: 10px;
+margin-right: 10px;
 }
 
 div.tweet-wrapper {
 border: 1px solid rgba(141, 141, 141, 0.39);
-margin-right: 50%;
 margin-bottom: 5px;
 border-radius: 5px;
 background: -webkit-linear-gradient(rgba(111, 192, 255, 0.36),rgba(23, 40, 238, 0.39));
@@ -34,8 +60,27 @@ font-size: 16px;
 margin-left: 13px;
 }
 
+div.tweet-wrapper a.tweet-user {
+text-decoration: none;
+color: rgb(83, 83, 255);
+}
+
 div.tweet-wrapper h6.tweet-ts {
 margin-left: 50px;
 font-size: 14px;
 color: rgb(5, 5, 5);
+}
+
+footer.error-text {
+display: none;
+position: fixed;
+bottom: 0;
+color: white;
+background-color: red;
+left: 0;
+right: 0;
+text-align: center;
+padding: 30px 0;
+font-size: 23px;
+font-family: sans-serif;
 }
