@@ -1,3 +1,5 @@
+var username = prompt('Username: ');
+
 $(document).ready(function(){
   
   var $body = $('body');
@@ -5,6 +7,30 @@ $(document).ready(function(){
   $body.html('');
   
   var lastUpdate='0';
+
+  var tweetsOnDom = [];
+
+  function getRelativeTweetTs(tweetTs){
+
+    return moment(tweetTs).fromNow();
+
+  }
+
+  function updateTweetsTs(){
+
+    var index = 0;
+
+    while(index <= tweetsOnDom.length - 1){
+
+      var tweet = tweetsOnDom[index];
+
+      $('#' + tweet.guid).find('.tweet-ts').text('added: ' + getRelativeTweetTs(tweet.created_at));
+
+      index++;
+
+    }
+
+  }
 
   function appendTweetsToDom(){
   
@@ -14,28 +40,56 @@ $(document).ready(function(){
 
     });
   
-    lastUpdate = streams.home[0].created_at;
+    lastUpdate = moment();
   
-    var index = tweetsToAppend.length - 1;
+    var index = 0;
   
-    while(index >= 0){
+    while(index <= tweetsToAppend.length - 1){
   
       var tweet = tweetsToAppend[index];
+
+      tweetsOnDom.push(tweet);
+
+      tweet.guid = tweetsOnDom.length - 1;
   
-      var $tweet = $('<div></div>');
+      var $tweet = $('<div></div>').attr({
+
+        'class':'tweet-wrapper',
+
+        'id': tweet.guid
+
+      });
+
+      var $tweetBody = $('<h5></h5>').attr('class','tweet-body');
+
+      var $tweetTs = $('<h6></h6>').attr('class','tweet-ts');
+
+      $tweetBody.text('@' + tweet.user + ': ' + tweet.message);
+
+      // $tweetTs.text('added: ' + getRelativeTweetTs(tweet.created_at));
   
-      $tweet.text('@' + tweet.user + ': ' + tweet.message + '  added: ' + moment(tweet.created_at).fromNow());
+      $tweetBody.appendTo($tweet);
+
+      $tweetTs.appendTo($tweet);
   
-      $tweet.appendTo($body);
+      $tweet.prependTo($body);
   
-      index -= 1;
+      index++;
   
     }
   
   }
 
-  appendTweetsToDom();
+  function updateDom(){
 
-  setInterval(appendTweetsToDom,5000);
+    appendTweetsToDom();
+
+    updateTweetsTs();
+
+  }
+
+  updateDom();
+
+  setInterval(updateDom,60000);
 
 });
