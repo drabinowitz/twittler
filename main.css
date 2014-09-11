@@ -1,3 +1,24 @@
+header.twittler-title {
+border-bottom: 1px solid grey;
+box-shadow: 0 1px 2px rgba(0,0,0,0.7);
+position: fixed;
+left: 0;
+right: 0;
+top: 0;
+z-index: 100;
+background: white;
+text-align: center;
+font-size: 23px;
+font-family: monospace;
+padding: 10px 0;
+}
+
+div.twittler-content{
+
+  margin-top: 59px;
+
+}
+
 div.tweet-wrapper {
 border: 1px solid rgba(141, 141, 141, 0.39);
 margin-right: 50%;
